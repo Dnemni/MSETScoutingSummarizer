@@ -51,7 +51,7 @@ class SideBarSetup:
         return t
 
 
-AppData = pd.read_csv("scoutData.csv")
+appData = pd.read_csv("scoutData.csv")
 
 
 
@@ -87,7 +87,7 @@ with tab1:
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Data")
-        filtered_data = data[data['teamNumber'] == tm]
+        filtered_data = appData[appData['teamNumber'] == tm]
         st.dataframe(filtered_data)
 
 with tab2:
