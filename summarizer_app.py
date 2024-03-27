@@ -51,7 +51,7 @@ class SideBarSetup:
         return t
 
 
-AppData = pd.read_csv("DATA.csv")
+AppData = pd.read_csv("scoutData.csv")
 
 
 
