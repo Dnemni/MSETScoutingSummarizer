@@ -54,7 +54,7 @@ class SideBarSetup:
 rawData = pd.read_csv("scoutData.csv")
 
 # List the desired column order
-desired_columns = ['scoutName', 'teamNumber', 'matchNumber'] + [col for col in rawData.columns if col not in ['scoutName', 'teamNumber', 'matchNumber']]
+desired_columns = ['scoutName', 'teamNumber', 'matchNumber', 'allianceColor'] + [col for col in rawData.columns if col not in ['scoutName', 'teamNumber', 'matchNumber', 'allianceColor']]
 
 # Reorder the columns of the DataFrame
 appData = rawData[desired_columns]
