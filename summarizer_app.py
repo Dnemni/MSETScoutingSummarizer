@@ -83,7 +83,7 @@ for i in range (st.session_state.buttonClick):
 
 with tab1:
     st.header("App Scouting")
-    
+    st.dataframe(appData)
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Data")
