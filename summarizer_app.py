@@ -87,6 +87,8 @@ with tab1:
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Data")
+        st.write(type(tm))
+        st.write(type(appData['teamNumber'][1]))
         filtered_data = appData[appData['teamNumber'].eq(tm)]
         st.dataframe(filtered_data)
 
