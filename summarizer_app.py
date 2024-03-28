@@ -52,6 +52,7 @@ class SideBarSetup:
 
 
 rawData = pd.read_csv("scoutData.csv")
+pitData = pd.read_csv("pitData.csv")
 
 # List the desired column order
 desired_columns = ['scoutName', 'teamNumber', 'matchNumber', 'allianceColor'] + [col for col in rawData.columns if col not in ['scoutName', 'teamNumber', 'matchNumber', 'allianceColor']]
@@ -103,3 +104,5 @@ with tab3:
     st.header("Pit Scouting")
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Pit")
+        filtered_data2 = appData[appData['Team Number'] == int(tm)]
+        st.dataframe(filtered_data2)
