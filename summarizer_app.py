@@ -104,5 +104,5 @@ with tab3:
     st.header("Pit Scouting")
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Pit")
-        filtered_data2 = appData[appData['Team Number'] == int(tm)]
+        filtered_data2 = pitData[pitData['Team Number'] == int(tm)]
         st.dataframe(filtered_data2)
