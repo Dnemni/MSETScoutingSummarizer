@@ -4,13 +4,13 @@ import streamlit as st
 import datetime
 
 st.set_page_config(
-    page_title="MSET Scouting Data Visualizer",
-    page_icon=":chart:",  # You can use any emoji as an icon
+    page_title="MSET Scouting Summarizer",
+    page_icon="🖨",  # You can use any emoji as an icon
     layout="centered",
     initial_sidebar_state="expanded",
 )
 
-st.title("MSET Scouting Data Visualizer")
+st.title("MSET Scouting Summarizer")
 
 # Set theme
 theme = {
@@ -40,6 +40,7 @@ st.markdown(
 
 #Input
 st.sidebar.title("Select Team")
+st.sidebar.write("Use 0 to see all data")
 
 class SideBarSetup:
     def bar(self):
