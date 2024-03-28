@@ -88,7 +88,6 @@ for i in range (st.session_state.buttonClick):
 
 with tab1:
     st.header("App Scouting")
-    st.dataframe(appData)
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Data")
@@ -98,9 +97,9 @@ with tab1:
 with tab2:
     st.header("Paper Scouting")
     for idx, tm in enumerate(teams_info):
-        st.write("Team " + str(tm) + " Paper:")
+        st.write("Team " + str(tm) + " Paper")
 
 with tab3:
     st.header("Pit Scouting")
     for idx, tm in enumerate(teams_info):
-        st.write("Team " + str(tm) + " Pit:")
+        st.write("Team " + str(tm) + " Pit")
