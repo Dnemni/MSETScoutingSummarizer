@@ -91,7 +91,7 @@ with tab1:
     st.header("App Scouting")
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
-        if tm == 0:
+        if int(tm) == 0:
             st.dataframe(appData)
         else:
             st.write("Team " + str(tm) + " Data")
@@ -106,7 +106,7 @@ with tab2:
 with tab3:
     st.header("Pit Scouting")
     for idx, tm in enumerate(teams_info):
-        if tm == 0:
+        if int(tm) == 0:
             st.dataframe(pitData)
         else:
             st.write("Team " + str(tm) + " Pit")
