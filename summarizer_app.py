@@ -91,9 +91,12 @@ with tab1:
     st.header("App Scouting")
     # Display charts for each team
     for idx, tm in enumerate(teams_info):
-        st.write("Team " + str(tm) + " Data")
-        filtered_data = appData[appData['teamNumber'] == int(tm)]
-        st.dataframe(filtered_data)
+        if tm == 0:
+            st.dataframe(appData)
+        else:
+            st.write("Team " + str(tm) + " Data")
+            filtered_data = appData[appData['teamNumber'] == int(tm)]
+            st.dataframe(filtered_data)
 
 with tab2:
     st.header("Paper Scouting")
@@ -103,6 +106,9 @@ with tab2:
 with tab3:
     st.header("Pit Scouting")
     for idx, tm in enumerate(teams_info):
-        st.write("Team " + str(tm) + " Pit")
-        filtered_data2 = pitData[pitData['Team Number'] == int(tm)]
-        st.dataframe(filtered_data2)
+        if tm == 0:
+            st.dataframe(pitData)
+        else:
+            st.write("Team " + str(tm) + " Pit")
+            filtered_data2 = pitData[pitData['Team Number'] == int(tm)]
+            st.dataframe(filtered_data2)
