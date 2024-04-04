@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import datetime
+import re
+import PyPDF2
 
 st.set_page_config(
     page_title="MSET Scouting Summarizer",
@@ -36,6 +38,34 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+def extract_team_info(pdf_text, team_name):
+    # Define the pattern to search for the team name
+    pattern = re.compile(f"{re.escape(team_name)}.*?\\b\\d+\\s+[A-Z]", re.DOTALL)
+    
+    # Search for the team name in the PDF text
+    match = pattern.search(pdf_text)
+    if match:
+        # Extract the matched text
+        team_info = match.group(0)
+        return team_info
+    else:
+        return None
+
+def read_pdf_file(file_path):
+    # Open the PDF file in binary mode
+    with open(file_path, 'rb') as file:
+        # Create a PDF reader object
+        pdf_reader = PyPDF2.PdfFileReader(file)
+        
+        # Initialize an empty string to store text from all pages
+        pdf_text = ""
+        
+        # Loop through each page and extract text
+        for page_num in range(pdf_reader.numPages):
+            page = pdf_reader.getPage(page_num)
+            pdf_text += page.extractText()
+        
+    return pdf_text
 
 
 #Input
@@ -103,6 +133,22 @@ with tab2:
     st.header("Paper Scouting")
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Paper")
+    
+    # Example usage
+    file_path = 'paperData.pdf'
+    team_name = "100 The Wildhats"
+
+    # Read the PDF file
+    pdf_text = read_pdf_file(file_path)
+
+    # Extract team information
+    team_info = extract_team_info(pdf_text, team_name)
+
+    if team_info:
+        print("Team information found:")
+        print(team_info)
+    else:
+        print(f"Team '{team_name}' not found in the document.")
 
 with tab3:
     st.header("Pit Scouting")
