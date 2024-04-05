@@ -144,7 +144,9 @@ with tab2:
 
     # Extract team information
     team_info = extract_team_info(pdf_text, team_name)
-
+    
+    if int(tm) == 0:
+        print(file_path)
     if team_info:
         print("Team information found:")
         print(team_info)
