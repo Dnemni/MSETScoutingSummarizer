@@ -146,7 +146,7 @@ with tab2:
     team_info = extract_team_info(pdf_text, team_name)
     
     if int(tm) == 0:
-        with open('your_pdf_file.pdf', 'rb') as file:
+        with open('paperData.pdf', 'rb') as file:
             # Create a PDF reader object
             pdf_reader = PyPDF2.PdfReader(file)
     
