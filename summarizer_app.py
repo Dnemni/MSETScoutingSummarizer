@@ -39,10 +39,10 @@ st.markdown(
 )
 
 def extract_team_info(pdf_text, team_name):
-    # Define the pattern to search for the team name
-    pattern = re.compile(f"{re.escape(team_name)}.*?\\b\\d+\\s+[A-Z]", re.DOTALL)
+    # Define the pattern to search for the team headline and its associated information
+    pattern = re.compile(rf"{re.escape(team_name)}(?:.*?)(?=\b\d+\s+[A-Z]|$)", re.DOTALL)
     
-    # Search for the team name in the PDF text
+    # Search for the team information in the PDF text
     match = pattern.search(pdf_text)
     if match:
         # Extract the matched text
