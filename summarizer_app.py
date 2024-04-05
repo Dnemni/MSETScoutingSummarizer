@@ -151,19 +151,18 @@ with tab2:
     
         # Example usage
         file_path = 'paperData.pdf'
-        team_name = "100"
 
         # Read the PDF file
         pdf_text = read_pdf_file(file_path)
 
         # Extract team information
-        team_info = extract_team_info(pdf_text, team_name)
+        team_info = extract_team_info(pdf_text, tm)
     
         if team_info:
             print("Team information found:")
             st.write(team_info)
         else:
-            print(f"Team '{team_name}' not found in the document.")
+            print(f"Team '{tm}' not found in the document.")
 
 with tab3:
     st.header("Pit Scouting")
