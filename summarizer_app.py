@@ -146,7 +146,18 @@ with tab2:
     team_info = extract_team_info(pdf_text, team_name)
     
     if int(tm) == 0:
-        st.write(file_path)
+        with open('your_pdf_file.pdf', 'rb') as file:
+        # Create a PDF reader object
+        pdf_reader = PyPDF2.PdfReader(file)
+    
+        # Iterate through each page and extract text
+        for page_num in range(len(pdf_reader.pages)):
+            page = pdf_reader.pages[page_num]
+            page_text = page.extract_text()
+        
+            # Print the text of each page
+            st.write("Page", page_num + 1)
+            st.write(page_text)
     if team_info:
         print("Team information found:")
         print(team_info)
