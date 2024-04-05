@@ -146,7 +146,7 @@ with tab2:
     team_info = extract_team_info(pdf_text, team_name)
     
     if int(tm) == 0:
-        print(file_path)
+        st.write(file_path)
     if team_info:
         print("Team information found:")
         print(team_info)
