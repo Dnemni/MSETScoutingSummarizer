@@ -137,7 +137,7 @@ with tab2:
     
     # Example usage
     file_path = 'paperData.pdf'
-    team_name = "100 The Wildhats"
+    team_name = "100"
 
     # Read the PDF file
     pdf_text = read_pdf_file(file_path)
