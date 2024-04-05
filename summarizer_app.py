@@ -161,7 +161,7 @@ with tab2:
     
         if team_info:
             print("Team information found:")
-            print(team_info)
+            st.write(team_info)
         else:
             print(f"Team '{team_name}' not found in the document.")
 
