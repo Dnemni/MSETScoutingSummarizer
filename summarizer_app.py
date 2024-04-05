@@ -135,34 +135,35 @@ with tab2:
     for idx, tm in enumerate(teams_info):
         st.write("Team " + str(tm) + " Paper")
     
-    # Example usage
-    file_path = 'paperData.pdf'
-    team_name = "100"
-
-    # Read the PDF file
-    pdf_text = read_pdf_file(file_path)
-
-    # Extract team information
-    team_info = extract_team_info(pdf_text, team_name)
+        if int(tm) == 0:
+            with open('paperData.pdf', 'rb') as file:
+                # Create a PDF reader object
+                pdf_reader = PyPDF2.PdfReader(file)
     
-    if int(tm) == 0:
-        with open('paperData.pdf', 'rb') as file:
-            # Create a PDF reader object
-            pdf_reader = PyPDF2.PdfReader(file)
-    
-            # Iterate through each page and extract text
-            for page_num in range(len(pdf_reader.pages)):
-                page = pdf_reader.pages[page_num]
-                page_text = page.extract_text()
+                # Iterate through each page and extract text
+                for page_num in range(len(pdf_reader.pages)):
+                    page = pdf_reader.pages[page_num]
+                    page_text = page.extract_text()
         
-                # Print the text of each page
-                st.write("Page", page_num + 1)
-                st.write(page_text)
-    if team_info:
-        print("Team information found:")
-        print(team_info)
-    else:
-        print(f"Team '{team_name}' not found in the document.")
+                    # Print the text of each page
+                    st.write("Page", page_num + 1)
+                    st.write(page_text)
+    
+        # Example usage
+        file_path = 'paperData.pdf'
+        team_name = "100"
+
+        # Read the PDF file
+        pdf_text = read_pdf_file(file_path)
+
+        # Extract team information
+        team_info = extract_team_info(pdf_text, team_name)
+    
+        if team_info:
+            print("Team information found:")
+            print(team_info)
+        else:
+            print(f"Team '{team_name}' not found in the document.")
 
 with tab3:
     st.header("Pit Scouting")
