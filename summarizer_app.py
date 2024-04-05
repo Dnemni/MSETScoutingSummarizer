@@ -55,17 +55,18 @@ def read_pdf_file(file_path):
     # Open the PDF file in binary mode
     with open(file_path, 'rb') as file:
         # Create a PDF reader object
-        pdf_reader = PyPDF2.PdfFileReader(file)
+        pdf_reader = PyPDF2.PdfReader(file)
         
         # Initialize an empty string to store text from all pages
         pdf_text = ""
         
         # Loop through each page and extract text
-        for page_num in range(pdf_reader.numPages):
-            page = pdf_reader.getPage(page_num)
-            pdf_text += page.extractText()
+        for page_num in range(len(pdf_reader.pages)):
+            page = pdf_reader.pages[page_num]
+            pdf_text += page.extract_text()
         
     return pdf_text
+
 
 
 #Input
